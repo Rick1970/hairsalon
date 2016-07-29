@@ -1,8 +1,8 @@
 using Xunit;
 using System.Collections.Generic;
-using System;
 using System.Data;
 using System.Data.SqlClient;
+using System;
 
 namespace SalonList
 {
@@ -32,6 +32,18 @@ namespace SalonList
       Stylist secondStylist = new Stylist("Jane");
       //Assert
       Assert.Equal(firstStylist, secondStylist);
+    }
+    [Fact]
+    public void T3_Test_Save_SavesToDatabase()
+    {
+      //arrange
+      Stylist testStylist = new Stylist("Jane");
+      //act
+      testStylist.Save();
+      List<Stylist> result = Stylist.GetAll();
+      List<Stylist> testList = new List<Stylist>{testStylist};
+      //Assert
+      Assert.Equal(testList, result);
     }
    }
   }
