@@ -24,6 +24,15 @@ namespace SalonList
       //assert
       Assert.Equal(0, result);
     }
+    [Fact]
+    public void T2_Equal_ReturnsTrueIfNamesAreTheSame()
+    {
+      //arrange, act
+      Client firstClient = new Client("Jill");
+      Client secondClient = new Client("Jill");
+      //Assert
+      Assert.Equal(firstClient, secondClient);
+    }
 
   }
  }
