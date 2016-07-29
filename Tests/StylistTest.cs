@@ -24,5 +24,14 @@ namespace SalonList
       //assert
       Assert.Equal(0, result);
     }
+    [Fact]
+    public void T2_Equal_ReturnsTrueIfNamesAreTheSame()
+    {
+      //arrange, act
+      Stylist firstStylist = new Stylist("Jane");
+      Stylist secondStylist = new Stylist("Jane");
+      //Assert
+      Assert.Equal(firstStylist, secondStylist);
+    }
    }
   }

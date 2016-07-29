@@ -14,6 +14,19 @@ namespace SalonList
       _id = Id;
       _name = Name;
     }
+    public override bool Equals(System.Object otherStylist)
+    {
+      if (!(otherStylist is Stylist))
+      {
+        return false;
+      }
+      else
+      {
+        Stylist newStylist = (Stylist) otherStylist;
+        bool descriptionEquality = (this.GetName() == newStylist.GetName());
+        return descriptionEquality;
+      }
+    }
     public int GetId()
     {
       return _id;
