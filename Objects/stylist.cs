@@ -26,6 +26,34 @@ namespace SalonList
     {
       _name = newName;
     }
+    public static List<Stylist> GetAll()
+    {
+      List<Stylist> allStylist = new List<Stylist>{};
+
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists;", conn);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while (rdr.Read())
+      {
+        int stylistId = rdr.GetInt32(0);
+        string stylistName = rdr.GetString(0);
+        Stylist newStylist = new Stylist(stylistName, stylistId);
+        allStylist.Add(newStylist);
+      }
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+      return allStylist;
+    }
+
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();
