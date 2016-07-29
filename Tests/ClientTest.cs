@@ -45,6 +45,20 @@ namespace SalonList
       //Assert
       Assert.Equal(testClient, result);
     }
+    [Fact]
+    public void T4_Save_AssignsIdToObject()
+    {
+      //arrange
+      Client testClient = new Client("Jill");
+      //act
+      testClient.Save();
+      Client savedClient = Client.GetAll()[0];
+
+      int result = savedClient.GetId();
+      int testId = testClient.GetId();
+      //Assert
+      Assert.Equal(testId, result);
+    }
 
   }
  }
