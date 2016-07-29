@@ -23,8 +23,9 @@ namespace SalonList
       else
       {
         Stylist newStylist = (Stylist) otherStylist;
-        bool descriptionEquality = (this.GetName() == newStylist.GetName());
-        return descriptionEquality;
+        bool idEquality = (this.GetId() == newStylist.GetId());
+        bool nameEquality = (this.GetName() == newStylist.GetName());
+        return (idEquality && nameEquality);
       }
     }
     public int GetId()
