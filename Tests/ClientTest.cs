@@ -59,6 +59,17 @@ namespace SalonList
       //Assert
       Assert.Equal(testId, result);
     }
+    [Fact]
+    public void T5_Find_FindNameInDatabase()
+    {
+      //arrange
+      Client testClient = new Client("Jill");
+      testClient.Save();
+      //act
+      Client foundClient = Client.Find(testClient.GetId());
+      //Assert
+      Assert.Equal(testClient, foundClient);
+    }
 
   }
  }
