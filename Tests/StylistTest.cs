@@ -58,7 +58,17 @@ namespace SalonList
       int testId = testStylist.GetId();
       //Assert
       Assert.Equal(testId, result);
-
+    }
+    [Fact]
+    public void T5_Find_FindNameInDatabase()
+    {
+      //arrange
+      Stylist testStylist = new Stylist("Jane");
+      testStylist.Save();
+      //act
+      Stylist foundStylist = Stylist.Find(testStylist.GetId());
+      //Assert
+      Assert.Equal(testStylist, foundStylist);
     }
 
    }
