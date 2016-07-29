@@ -1,4 +1,4 @@
-using Systems.Collections.Generic;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System;
 
@@ -9,7 +9,7 @@ namespace SalonList
     private int _id;
     private string _name;
 
-    public stylist(string Name, int Id = 0)
+    public Stylist(string Name, int Id = 0)
     {
       _id = Id;
       _name = Name;

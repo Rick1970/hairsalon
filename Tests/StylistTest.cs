@@ -16,9 +16,5 @@ namespace SalonList
     {
       DBConfiguration.ConnectionString = "Data source=(localdb)\\mssqllocaldb; initial Catalog=hair_salon_test;Intergrated Security=SSPI;";
     }
-    
+   }
   }
-  {
-
-  }
-}
