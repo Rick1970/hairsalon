@@ -24,6 +24,7 @@ namespace SalonList
       //assert
       Assert.Equal(0, result);
     }
+
     [Fact]
     public void T2_Equal_ReturnsTrueIfNamesAreTheSame()
     {
@@ -33,6 +34,7 @@ namespace SalonList
       //Assert
       Assert.Equal(firstClient, secondClient);
     }
+
     [Fact]
     public void T3_Test_Save_SavesToDatabase()
     {
@@ -45,6 +47,7 @@ namespace SalonList
       //Assert
       Assert.Equal(testClient, result);
     }
+
     [Fact]
     public void T4_Save_AssignsIdToObject()
     {
@@ -59,6 +62,7 @@ namespace SalonList
       //Assert
       Assert.Equal(testId, result);
     }
+    
     [Fact]
     public void T5_Find_FindNameInDatabase()
     {
@@ -70,6 +74,5 @@ namespace SalonList
       //Assert
       Assert.Equal(testClient, foundClient);
     }
-
   }
- }
+}

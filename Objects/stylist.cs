@@ -222,7 +222,6 @@ namespace SalonList
       {
         conn.Close();
       }
-    }
-
+    }  
   }
 }

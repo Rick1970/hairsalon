@@ -17,6 +17,7 @@ namespace SalonList
     {
       DBConfiguration.ConnectionString = "Data source=(localdb)\\mssqllocaldb; initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
+    
     [Fact]
     public void T1_StylistEmptyAtFirst()
     {
@@ -25,6 +26,7 @@ namespace SalonList
       //assert
       Assert.Equal(0, result);
     }
+
     [Fact]
     public void T2_Equal_ReturnsTrueIfNamesAreTheSame()
     {
@@ -34,6 +36,7 @@ namespace SalonList
       //Assert
       Assert.Equal(firstStylist, secondStylist);
     }
+
     [Fact]
     public void T3_Test_Save_SavesToDatabase()
     {
@@ -46,6 +49,7 @@ namespace SalonList
       //Assert
       Assert.Equal(testList, result);
     }
+
     [Fact]
     public void T4_Save_AssignsIdToObject()
     {
@@ -60,6 +64,7 @@ namespace SalonList
       //Assert
       Assert.Equal(testId, result);
     }
+
     [Fact]
     public void T5_Find_FindNameInDatabase()
     {
@@ -71,6 +76,7 @@ namespace SalonList
       //Assert
       Assert.Equal(testStylist, foundStylist);
     }
+
     [Fact]
     public void T6_GetClients_RetrievesAllClientsWithStylist()
     {
@@ -88,6 +94,7 @@ namespace SalonList
 
       Assert.Equal(testClientList, resultClientList);
     }
+
     [Fact]
     public void T7_Update_UpdatesStylistInDatabase()
     {

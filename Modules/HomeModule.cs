@@ -24,9 +24,9 @@ namespace SalonList
         return View["stylists_form.cshtml"];
       };
       Post["/stylist/new"] = _ =>{
-      Stylist newStylist = new Stylist(Request.Form["stylist-name"]);
-      newStylist.Save();
-      return View["success.cshtml"];
+        Stylist newStylist = new Stylist(Request.Form["stylist-name"]);
+        newStylist.Save();
+        return View["success.cshtml"];
       };
       Get["/clients/new"] = _ => {
         List<Stylist> AllStylist = Stylist.GetAll();
