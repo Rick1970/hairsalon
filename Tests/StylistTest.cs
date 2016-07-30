@@ -102,5 +102,35 @@ namespace SalonList
       //Assert
       Assert.Equal(newName, result);
     }
+
+    [Fact]
+    public void T8_Delete_DeletesStylistFromDatabase()
+    {
+      //Arrange
+      string name1 = "Mike";
+      Stylist testStylist1 = new Stylist(name1);
+      testStylist1.Save();
+
+      string name2 = "Lucy";
+      Stylist testStylist2 = new Stylist(name2);
+      testStylist2.Save();
+
+      Client testClient1 = new Client("Shirley", testStylist1.GetId());
+      testClient1.Save();
+      Client testClient2 = new Client("Bob", testStylist2.GetId());
+      testClient2.Save();
+
+      //Act
+      testStylist1.Delete();
+      List<Stylist> resultStylist = Stylist.GetAll();
+      List<Stylist> testStylistList = new List<Stylist> {testStylist2};
+
+      List<Client> resultClients = Client.GetAll();
+      List<Client> testClientList = new List<Client> {testClient2};
+
+      //Assert
+      Assert.Equal(testStylistList, resultStylist);
+      Assert.Equal(testClientList, resultClients);
+    }
   }
 }
