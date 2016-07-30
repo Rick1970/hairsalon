@@ -33,7 +33,7 @@ namespace SalonList
         return View["clients_form.cshtml", AllStylist];
       };
       Post["/clients/new"] = _ => {
-        Client newClient = new Client(Request.Form["client-name"], Request.Form["client-id"]);
+        Client newClient = new Client(Request.Form["client-name"], Request.Form["stylist-id"]);
         newClient.Save();
         return View["success.cshtml"];
       };
