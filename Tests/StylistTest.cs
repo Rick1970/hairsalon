@@ -11,6 +11,7 @@ namespace SalonList
     public void Dispose()
     {
       Stylist.DeleteAll();
+      Client.DeleteAll();
     }
     public StylistTest()
     {
@@ -70,6 +71,22 @@ namespace SalonList
       //Assert
       Assert.Equal(testStylist, foundStylist);
     }
+    [Fact]
+        public void T6_GetClients_RetrievesAllClientsWithStylist()
+        {
+          Stylist testStylist = new Stylist("Jane");
+          testStylist.Save();
 
+          Client firstClient = new Client("Jill", testStylist.GetId());
+          firstClient.Save();
+          Client secondClient = new Client("Lisa", testStylist.GetId());
+          secondClient.Save();
+
+
+          List<Client> testClientList = new List<Client> {firstClient, secondClient};
+          List<Client> resultClientList = testStylist.GetClients();
+
+          Assert.Equal(testClientList, resultClientList);
+        }
    }
   }
