@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Client</title>
+  </head>
+  <body>
+    <h1>Add a Client.</h1>
+    <form action="/clients/new" method="post">
+      <label for="client-name">Client Name:</label>
+      <input type="text" name="client-name" id="client-name" placeholder="name">
+
+      <select name="stylist-id">
+        @foreach (var stylist in Model)
+        {
+          <option value="@stylist.GetId()">@stylist.GetName()</option>
+        }
+      </select>
+      <button type="submit">Add the Client.</button>
+    </form>
+    <p><a href="/">Return Home</a></p>
+    <p><a href="/clients">View All Clients.</a></p>
+  </body>
+</html>
