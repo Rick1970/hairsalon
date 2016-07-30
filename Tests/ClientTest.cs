@@ -28,8 +28,8 @@ namespace SalonList
     public void T2_Equal_ReturnsTrueIfNamesAreTheSame()
     {
       //arrange, act
-      Client firstClient = new Client("Jill");
-      Client secondClient = new Client("Jill");
+      Client firstClient = new Client("Jill", 1);
+      Client secondClient = new Client("Jill", 1);
       //Assert
       Assert.Equal(firstClient, secondClient);
     }
@@ -37,7 +37,7 @@ namespace SalonList
     public void T3_Test_Save_SavesToDatabase()
     {
       //arrange
-      Client testList = new Client("Jill");
+      Client testList = new Client("Jill", 1);
       //act
       testList.Save();
       List<Client> result = Client.GetAll();
@@ -49,7 +49,7 @@ namespace SalonList
     public void T4_Save_AssignsIdToObject()
     {
       //arrange
-      Client testClient = new Client("Jill");
+      Client testClient = new Client("Jill", 1);
       //act
       testClient.Save();
       Client savedClient = Client.GetAll()[0];
@@ -63,7 +63,7 @@ namespace SalonList
     public void T5_Find_FindNameInDatabase()
     {
       //arrange
-      Client testClient = new Client("Jill");
+      Client testClient = new Client("Jill", 1);
       testClient.Save();
       //act
       Client foundClient = Client.Find(testClient.GetId());
